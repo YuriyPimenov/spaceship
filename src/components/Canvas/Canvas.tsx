@@ -2,6 +2,9 @@ import React, {FC, useEffect, useRef} from 'react';
 import styles from './canvas.module.scss'
 import {observer} from "mobx-react-lite";
 import canvasStore from "../../store/canvasStore";
+import gameStore from "../../store/gameStore";
+import Scene from "../../game/Scene";
+import {PerspectiveCamera, Renderer} from "../../game";
 
 const Canvas: FC = observer(() => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -9,13 +12,20 @@ const Canvas: FC = observer(() => {
         if (canvasRef.current) {
             canvasStore.setCanvas(canvasRef.current);
 
-            // Test
-            const context = canvasStore.canvas?.getContext('2d');
-            if (context) {
-                context.beginPath();
-                context.arc(50, 50, 50, 0, 2 * Math.PI);
-                context.fill();
-            }
+            gameStore.setScene(new Scene());
+            gameStore.scene?.init();
+
+            gameStore.setPerspectiveCamera(new PerspectiveCamera());
+            gameStore.perspectiveCamera?.init();
+
+            gameStore.setRenderer(new Renderer({canvas: canvasRef.current}));
+            gameStore.renderer?.init();
+
+            gameStore.perspectiveCamera && gameStore.scene?.add(gameStore.perspectiveCamera);
+
+            gameStore.scene &&
+            gameStore.perspectiveCamera &&
+            gameStore.renderer?.render(gameStore.scene, gameStore.perspectiveCamera);
         }
     }, [])
 
