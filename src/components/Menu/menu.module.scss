@@ -6,4 +6,17 @@ $font_size_test: 24px;
   background-color: aqua;
   z-index: 2;
   position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  padding: 15px;
+}
+
+.actions {
+  .start {
+    cursor: pointer;
+    background-color: darkgray;
+    border: solid 1px black ;
+    padding: 5px;
+  }
 }
