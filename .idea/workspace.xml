@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feat" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d1ac9c5-6934-4030-96a8-1d161f045386" name="Default Changelist" comment="">
+    <list default="true" id="8d1ac9c5-6934-4030-96a8-1d161f045386" name="Default Changelist" comment="adding store">
+      <change afterPath="$PROJECT_DIR$/src/game/ManagerControls.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/ManagerLights.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/Player.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/Ticker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Canvas/Canvas.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Canvas/Canvas.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Canvas/canvas.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Canvas/canvas.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/menu.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/menu.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/PerspectiveCamera.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/PerspectiveCamera.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Renderer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Renderer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Scene.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Scene.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/gameStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/gameStore.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +39,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feat/SS-3-add-store" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="24VQiVEp07S22uVbkh7voGj5PzB" />
@@ -44,10 +70,51 @@
       <updated>1643713401732</updated>
       <workItem from="1643713402769" duration="2185000" />
       <workItem from="1643723550751" duration="976000" />
+      <workItem from="1643899689552" duration="7419000" />
+      <workItem from="1643907484367" duration="2201000" />
+      <workItem from="1644135416497" duration="6611000" />
     </task>
+    <task id="LOCAL-00001" summary="adding store">
+      <created>1643729495430</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1643729495430</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adding store" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding store" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1643729499361">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1643729499361" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1643899742607">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1643899742607" />
+    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1643901144038">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1643901144038" />
   </component>
 </project>
