@@ -4,7 +4,7 @@ import {observer} from "mobx-react-lite";
 import canvasStore from "../../store/canvasStore";
 import gameStore from "../../store/gameStore";
 import Scene from "../../game/Scene";
-import {PerspectiveCamera, Renderer} from "../../game";
+import {ManagerControls, ManagerLights, PerspectiveCamera, Player, Renderer, Ticker} from "../../game";
 
 const Canvas: FC = observer(() => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -23,9 +23,20 @@ const Canvas: FC = observer(() => {
 
             gameStore.perspectiveCamera && gameStore.scene?.add(gameStore.perspectiveCamera);
 
-            gameStore.scene &&
-            gameStore.perspectiveCamera &&
-            gameStore.renderer?.render(gameStore.scene, gameStore.perspectiveCamera);
+            gameStore.scene && gameStore.setManagerLights(new ManagerLights(gameStore.scene))
+
+            gameStore.scene && gameStore.setPlayer(new Player(gameStore.scene));
+
+            if (gameStore.perspectiveCamera) {
+                gameStore.setManagerControls(new ManagerControls({camera: gameStore.perspectiveCamera, canvas: canvasRef.current}));
+                gameStore.managerControls?.setOrbitControl({enableDamping: true, minDistance: 1,maxDistance: 10000, maxPolarAngle: Math.PI/2})
+            }
+
+            if (gameStore.renderer && gameStore.scene && gameStore.perspectiveCamera && gameStore.managerControls) {
+                gameStore.setTicker(new Ticker(gameStore.renderer, gameStore.scene, gameStore.perspectiveCamera, gameStore.managerControls));
+                gameStore.ticker?.render();
+            }
+
         }
     }, [])
 

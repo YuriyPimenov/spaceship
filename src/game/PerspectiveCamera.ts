@@ -19,6 +19,10 @@ export default class PerspectiveCamera extends THREE.PerspectiveCamera{
         this.position.set(vector.x, vector.y, vector.z)
     }
 
+    setRotationX(x: number) {
+        this.rotation.x = x;
+    }
+
     setLookAt(vector: { x: number; y: number; z: number }) {
         this.lookAt(vector.x, vector.y, vector.z)
     }

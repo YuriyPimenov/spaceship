@@ -6,7 +6,7 @@ export default class Scene extends THREE.Scene{
     }
 
     init(
-        {color} = {color: '#ebfcfb'}
+        {color} = {color: '#0d006e'}
     ) {
         this.background = new THREE.Color(color)
     }

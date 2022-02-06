@@ -8,6 +8,9 @@ export default class Renderer extends THREE.WebGLRenderer {
     init({width, height} = {width: window.innerWidth, height: window.innerHeight}) {
         this.setSizeRenderer({width, height})
         this.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+        this.shadowMap.enabled = true
+        this.shadowMap.type = THREE.PCFSoftShadowMap
     }
 
     setSizeRenderer(size: {width: number, height: number}) {

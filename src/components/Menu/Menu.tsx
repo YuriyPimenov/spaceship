@@ -11,6 +11,7 @@ const Menu: FC = observer(() => {
 
     return (
         <div className={styles.root}>
+            <div className={styles.title}>STAR SHIP</div>
             <div className={styles.actions}>
                 <div className={styles.start} onClick={onClickStart}>START</div>
             </div>
