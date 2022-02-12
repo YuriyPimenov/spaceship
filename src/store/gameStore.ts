@@ -1,5 +1,7 @@
 import {makeAutoObservable} from "mobx";
-import {Scene, PerspectiveCamera, Renderer, Ticker, Player, ManagerControls, ManagerLights} from "../game/";
+import {Scene, PerspectiveCamera, Renderer, Ticker, ManagerControls, ManagerLights} from "../game/";
+import ManagerObjects from "../game/ManagerObjects";
+import ManagerEvents from "../game/ManagerEvents";
 
 class GameStore {
     isRun: boolean = false;
@@ -7,9 +9,10 @@ class GameStore {
     perspectiveCamera: PerspectiveCamera | null = null;
     renderer: Renderer | null = null;
     ticker: Ticker | null = null;
-    player: Player | null = null;
     managerControls: ManagerControls | null = null;
     managerLights: ManagerLights | null = null;
+    managerObjects: ManagerObjects | null = null;
+    managerEvents: ManagerEvents | null = null;
 
     constructor() {
         makeAutoObservable(this);
@@ -35,8 +38,8 @@ class GameStore {
         this.ticker = ticker;
     }
 
-    setPlayer(player: Player) {
-        this.player = player;
+    setManagerObjects(managerObjects: ManagerObjects) {
+        this.managerObjects = managerObjects;
     }
 
     setManagerControls(managerControls: ManagerControls) {
@@ -45,6 +48,10 @@ class GameStore {
 
     setManagerLights(managerLights: ManagerLights) {
         this.managerLights = managerLights;
+    }
+
+    setManagerEvents(managerEvents: ManagerEvents) {
+        this.managerEvents = managerEvents;
     }
 }
 

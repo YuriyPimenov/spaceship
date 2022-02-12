@@ -4,7 +4,16 @@ import {observer} from "mobx-react-lite";
 import canvasStore from "../../store/canvasStore";
 import gameStore from "../../store/gameStore";
 import Scene from "../../game/Scene";
-import {ManagerControls, ManagerLights, PerspectiveCamera, Player, Renderer, Ticker} from "../../game";
+import {
+    ManagerControls,
+    ManagerEvents,
+    ManagerLights,
+    ManagerObjects,
+    PerspectiveCamera,
+    Renderer,
+    Ticker
+} from "../../game";
+import {SIZES} from "../../utils/constants";
 
 const Canvas: FC = observer(() => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -25,12 +34,14 @@ const Canvas: FC = observer(() => {
 
             gameStore.scene && gameStore.setManagerLights(new ManagerLights(gameStore.scene))
 
-            gameStore.scene && gameStore.setPlayer(new Player(gameStore.scene));
+            gameStore.scene && gameStore.setManagerObjects(new ManagerObjects(gameStore.scene));
+            gameStore.managerObjects?.init();
 
-            if (gameStore.perspectiveCamera) {
-                gameStore.setManagerControls(new ManagerControls({camera: gameStore.perspectiveCamera, canvas: canvasRef.current}));
-                gameStore.managerControls?.setOrbitControl({enableDamping: true, minDistance: 1,maxDistance: 10000, maxPolarAngle: Math.PI/2})
-            }
+            gameStore.perspectiveCamera && gameStore.setManagerControls(new ManagerControls({camera: gameStore.perspectiveCamera, canvas: canvasRef.current}));
+            gameStore.managerControls?.setOrbitControl({enableDamping: true, minDistance: 1,maxDistance: 10000, maxPolarAngle: Math.PI/2})
+
+            gameStore.perspectiveCamera && gameStore.renderer && gameStore.setManagerEvents(new ManagerEvents(gameStore.perspectiveCamera, gameStore.renderer))
+            gameStore.managerEvents?.init();
 
             if (gameStore.renderer && gameStore.scene && gameStore.perspectiveCamera && gameStore.managerControls) {
                 gameStore.setTicker(new Ticker(gameStore.renderer, gameStore.scene, gameStore.perspectiveCamera, gameStore.managerControls));
@@ -38,11 +49,16 @@ const Canvas: FC = observer(() => {
             }
 
         }
+
+        return () => {
+            // Уничтожаем слушатели событий
+            gameStore.managerEvents?.destroy();
+        };
     }, [])
 
     return (
         <div className={styles.root}>
-            <canvas ref={canvasRef} width={window.innerWidth} height={window.innerHeight}></canvas>
+            <canvas ref={canvasRef} width={SIZES.width} height={SIZES.height}></canvas>
         </div>
     );
 });
