@@ -1,34 +1,24 @@
 import {Scene} from "./index";
-import {GridHelper} from "three";
-import {DRACOLoader} from "three/examples/jsm/loaders/DRACOLoader";
-import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
+import {MathUtils, Object3D} from "three";
 
 export default class Player {
+    scene: Scene;
+    private mesh: Object3D | undefined;
 
     constructor(scene: Scene) {
-        const grid = this.getGridHelper()
-        scene.add(grid)
+        this.scene = scene
 
-        const dracoLoader = new DRACOLoader()
-        dracoLoader.setDecoderPath('/draco/')
-
-        const gltfLoader = new GLTFLoader()
-        gltfLoader.setDRACOLoader(dracoLoader)
-
-        gltfLoader.load('static/models/spaceship/scene.glb', (gltf) => {
-            gltf.scene.children.map((child) => {
-                if (child.name === "group_space_ship") {
-                    scene.add(child)
-                }
-            })
-
-            // scene.add(gltf.scene)
-        })
     }
 
-    getGridHelper() {
-        const grid = new GridHelper(100, 100);
+    addObject(object: Object3D) {
+        this.mesh = object;
+        this.scene.add(object);
+    }
 
-        return grid
+    setRotation() {
+        if (this.mesh) {
+            this.mesh.rotation.x = MathUtils.degToRad(-90);
+            this.mesh.position.z = 5;
+        }
     }
 }
