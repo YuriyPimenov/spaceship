@@ -40,11 +40,11 @@ const Canvas: FC = observer(() => {
             gameStore.perspectiveCamera && gameStore.setManagerControls(new ManagerControls({camera: gameStore.perspectiveCamera, canvas: canvasRef.current}));
             gameStore.managerControls?.setOrbitControl({enableDamping: true, minDistance: 1,maxDistance: 10000, maxPolarAngle: Math.PI/2})
 
-            gameStore.perspectiveCamera && gameStore.renderer && gameStore.setManagerEvents(new ManagerEvents(gameStore.perspectiveCamera, gameStore.renderer))
+            gameStore.perspectiveCamera && gameStore.renderer && gameStore.managerObjects && gameStore.setManagerEvents(new ManagerEvents(gameStore.perspectiveCamera, gameStore.renderer, gameStore.managerObjects))
             gameStore.managerEvents?.init();
 
-            if (gameStore.renderer && gameStore.scene && gameStore.perspectiveCamera && gameStore.managerControls) {
-                gameStore.setTicker(new Ticker(gameStore.renderer, gameStore.scene, gameStore.perspectiveCamera, gameStore.managerControls));
+            if (gameStore.renderer && gameStore.scene && gameStore.perspectiveCamera && gameStore.managerControls && gameStore.managerObjects) {
+                gameStore.setTicker(new Ticker(gameStore.renderer, gameStore.scene, gameStore.perspectiveCamera, gameStore.managerControls, gameStore.managerObjects));
                 gameStore.ticker?.render();
             }
 
